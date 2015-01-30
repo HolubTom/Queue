@@ -7,10 +7,13 @@ class Queue(object):
         self.__aDriver = pDriver
 
     def put(self, lMessage):
+        lMessage.setQueued()
         self.__aDriver.put(lMessage)
 
     def get(self):
-        return self.__aDriver.get()
+        lItem = self.__aDriver.get()
+        lItem.setDequeued()
+        return lItem
 
     @property
     def count(self):

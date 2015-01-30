@@ -2,4 +2,9 @@
 
 
 class Message(object):
-    pass
+
+    def setQueued(self):
+        pass
+
+    def setDequeued(self):
+        pass

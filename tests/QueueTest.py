@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from pCore.module.queue.messages import Message
+from pCore.module.queue.messages.Message import Message
 from pCore.module.queue.Queue import Queue
 from pCore.module.queue.drivers.MemoryDriver import MemoryDriver
 
@@ -25,26 +25,31 @@ class QueueTest(BaseTest):
 
     def testShouldPutNewMessageToTheQueue(self):
         lMessageMock = self.mox.CreateMock(Message)
+        lMessageMock.setQueued()
+        self.driverMock.put(lMessageMock)
 
-        self.driverMock.put(lMessageMock)
-        self.driverMock.put(lMessageMock)
-        self.driverMock.count = 2
+        self.driverMock.count = 1
 
         self.mox.ReplayAll()
 
         self.instance.put(lMessageMock)
-        self.instance.put(lMessageMock)
 
-        self.assertEqual(2, self.instance.count)
+        self.assertEqual(1, self.instance.count)
 
         self.mox.VerifyAll()
 
     def testShouldPopFromTheQueue(self):
         lMessageMock1 = self.mox.CreateMock(Message)
         lMessageMock2 = self.mox.CreateMock(Message)
+
         self.driverMock.put(lMessageMock1)
+        lMessageMock1.setQueued()
+
         self.driverMock.put(lMessageMock2)
+        lMessageMock2.setQueued()
+
         self.driverMock.get().AndReturn(lMessageMock1)
+        lMessageMock1.setDequeued()
         self.driverMock.count = 1
 
         self.mox.ReplayAll()
