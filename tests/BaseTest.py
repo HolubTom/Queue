@@ -3,6 +3,9 @@
 import mox
 import unittest
 
+__author__ = u"Tomas Holub"
+__email__ = u"tomas.holub@olc.cz"
+
 
 class BaseTest(unittest.TestCase):
 

@@ -5,6 +5,9 @@ from pCore.module.queue.drivers.MemoryDriver import MemoryDriver
 
 from tests.BaseTest import BaseTest
 
+__author__ = u"Tomas Holub"
+__email__ = u"tomas.holub@olc.cz"
+
 
 class QueueTest(BaseTest):
 
