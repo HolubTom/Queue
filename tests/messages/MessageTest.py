@@ -12,7 +12,10 @@ class MessageTest(BaseTest):
     def setUp(self):
         super(MessageTest, self).setUp()
 
-        self.instance = Message()
+        self.instance = self.getInstance()
+
+    def getInstance(self):
+        return Message()
 
     def testShouldMarkMessageAsQueued(self):
         self.instance.setQueued()
