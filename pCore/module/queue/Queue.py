@@ -41,3 +41,6 @@ class Queue(object):
         :rtype : int
         """
         return self.__aDriver.count
+
+    def getHistory(self):
+        return self.__aDriver.getHistory()

@@ -34,3 +34,7 @@ class MemoryDriver(object):
         :rtype : int
         """
         return len(self.__activeQueue)
+
+    def getHistory(self):
+        u""" Returns list of dequeued messages """
+        pass

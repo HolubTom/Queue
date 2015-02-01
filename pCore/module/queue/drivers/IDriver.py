@@ -18,3 +18,7 @@ class IDriver(object):
     def count(self):
         u""" Returns count of messages waiting in the line """
         pass
+
+    def getHistory(self):
+        u""" Returns list of dequeued messages """
+        pass
